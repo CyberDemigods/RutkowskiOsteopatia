@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
+  <title>Astro-AI — Raport astrologiczny dla pacjenta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="astro.css">
+</head>
+<body>
+
+  <nav class="navbar scrolled">
+    <div class="container">
+      <a href="../index.html" class="nav-logo">
+        <div>
+          <span class="nav-logo-text">Sebastian Rutkowski</span>
+          <span class="nav-logo-sub">Osteopata</span>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="../index.html">Strona główna</a>
+        <a href="index.html" class="active">Astro-AI</a>
+        <a href="../kontakt.html" class="nav-cta">Kontakt</a>
+      </div>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-nav">
+    <a href="../index.html">Strona główna</a>
+    <a href="index.html">Astro-AI</a>
+    <a href="../kontakt.html">Kontakt</a>
+  </div>
+
+  <section class="page-header">
+    <span class="section-label">Narzędzie terapeutyczne</span>
+    <h1>Astro-AI</h1>
+    <p class="section-desc">Raport z astrologii ewolucyjnej dla pacjenta na podstawie kosmogramu</p>
+  </section>
+
+  <section class="astro-app">
+    <div class="container">
+
+      <!-- Step 1: Patient data form -->
+      <div class="astro-step" id="step-form">
+        <div class="astro-card">
+          <h2>Dane pacjenta</h2>
+          <form id="astro-form" autocomplete="off">
+            <div class="astro-form-grid">
+              <div class="form-group">
+                <label for="patient-name">Imię pacjenta</label>
+                <input type="text" id="patient-name" placeholder="np. Anna" required>
+              </div>
+              <div class="form-group">
+                <label for="birth-date">Data urodzenia</label>
+                <input type="date" id="birth-date" required>
+              </div>
+              <div class="form-group">
+                <label for="birth-time">Godzina urodzenia</label>
+                <input type="time" id="birth-time" value="12:00" required>
+                <small>Dokładna godzina potrzebna do obliczenia Ascendentu</small>
+              </div>
+              <div class="form-group">
+                <label for="birth-city">Miejsce urodzenia</label>
+                <input type="text" id="birth-city" placeholder="np. Opole, Polska" required>
+              </div>
+              <div class="form-group form-group-coords">
+                <div>
+                  <label for="birth-lat">Szerokość geogr.</label>
+                  <input type="number" id="birth-lat" step="0.0001" placeholder="50.6751">
+                </div>
+                <div>
+                  <label for="birth-lng">Długość geogr.</label>
+                  <input type="number" id="birth-lng" step="0.0001" placeholder="17.9213">
+                </div>
+                <button type="button" id="geocode-btn" class="btn btn-outline btn-sm">Znajdź współrzędne</button>
+              </div>
+            </div>
+
+            <div class="astro-form-section">
+              <h3>Notatki z terapii <small>(opcjonalne)</small></h3>
+              <div class="astro-form-grid">
+                <div class="form-group">
+                  <label for="therapy-area">Obszar ciała</label>
+                  <input type="text" id="therapy-area" placeholder="np. kręgosłup lędźwiowy, przepona">
+                </div>
+                <div class="form-group">
+                  <label for="therapy-tissue">Tkanka</label>
+                  <input type="text" id="therapy-tissue" placeholder="np. powięź, mięśnie oddechowe">
+                </div>
+                <div class="form-group full-width">
+                  <label for="therapy-technique">Technika / obserwacje</label>
+                  <textarea id="therapy-technique" rows="3" placeholder="np. mikrokinezyterapia — odblokowanie strefy trzewnej, pacjent zgłasza ulgę w oddychaniu"></textarea>
+                </div>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg" id="generate-btn">Oblicz kosmogram i generuj raport</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Step 2: Cosmogram + Loading -->
+      <div class="astro-step hidden" id="step-cosmogram">
+        <div class="astro-card">
+          <h2>Kosmogram</h2>
+          <p class="astro-patient-label" id="cosmogram-patient"></p>
+          <div class="cosmogram-grid" id="cosmogram-data"></div>
+          <div class="astro-loading" id="ai-loading">
+            <div class="astro-spinner"></div>
+            <p>Generuję raport z astrologii ewolucyjnej...</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3: Report -->
+      <div class="astro-step hidden" id="step-report">
+        <div class="astro-card">
+          <div class="report-header">
+            <h2>Raport — Astrologia Ewolucyjna</h2>
+            <div class="report-actions">
+              <button class="btn btn-outline btn-sm" id="copy-btn">Kopiuj raport</button>
+              <button class="btn btn-outline btn-sm" id="back-btn">Nowy raport</button>
+            </div>
+          </div>
+          <p class="astro-patient-label" id="report-patient"></p>
+          <div id="report-content" class="report-content"></div>
+        </div>
+      </div>
+
+      <!-- Connection settings -->
+      <div class="astro-settings">
+        <details>
+          <summary>Ustawienia połączenia z LLM</summary>
+          <div class="astro-form-grid">
+            <div class="form-group full-width">
+              <label for="llm-provider">Provider</label>
+              <select id="llm-provider" onchange="toggleProviderSettings()">
+                <option value="local">LM Studio (lokalnie)</option>
+                <option value="claude">Claude API (produkcja)</option>
+              </select>
+            </div>
+
+            <div id="local-settings">
+              <div class="astro-form-grid">
+                <div class="form-group">
+                  <label for="llm-url">Adres API</label>
+                  <input type="text" id="llm-url" value="http://localhost:1234/v1/chat/completions">
+                </div>
+                <div class="form-group">
+                  <label for="llm-model">Model</label>
+                  <input type="text" id="llm-model" value="qwen3.6-35b-a3b" placeholder="nazwa modelu w LM Studio">
+                </div>
+              </div>
+            </div>
+
+            <div id="claude-settings" class="hidden">
+              <div class="astro-form-grid">
+                <div class="form-group">
+                  <label for="claude-api-key">Klucz API</label>
+                  <input type="password" id="claude-api-key" placeholder="sk-ant-...">
+                </div>
+                <div class="form-group">
+                  <label for="claude-model">Model</label>
+                  <select id="claude-model">
+                    <option value="claude-sonnet-4-6">Claude Sonnet 4.6 (szybki, tani)</option>
+                    <option value="claude-opus-4-6">Claude Opus 4.6 (najlepszy)</option>
+                    <option value="claude-haiku-4-5-20251001">Claude Haiku 4.5 (najtańszy)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="llm-temp">Temperatura</label>
+              <input type="number" id="llm-temp" value="0.7" min="0" max="2" step="0.1">
+            </div>
+            <button type="button" class="btn btn-outline btn-sm" id="test-connection-btn">Testuj połączenie</button>
+            <span id="connection-status"></span>
+          </div>
+        </details>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 Sebastian Rutkowski. Wszelkie prawa zastrzeżone.</p>
+        <span class="footer-forged">Forged by <a href="https://cyberdemigods.com" target="_blank" rel="noopener">CyberDemigods</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/circular-natal-horoscope-js/dist/index.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="astro.js"></script>
+</body>
+</html>
