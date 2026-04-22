@@ -65,7 +65,7 @@ ul { list-style: none; }
 
 /* --- Typography --- */
 h1, h2, h3, h4 {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 700;
   line-height: 1.2;
   color: var(--navy);
@@ -178,7 +178,7 @@ p {
 }
 
 .nav-logo-text {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 1.2rem;
   font-weight: 700;
   color: var(--white);
@@ -549,7 +549,7 @@ p {
 }
 
 .stat-number {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 2.2rem;
   font-weight: 700;
   color: var(--navy);
@@ -709,7 +709,7 @@ p {
 
 .testimonial-quote::before {
   content: '\201E';
-  font-family: 'Playfair Display', serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 4rem;
   color: var(--gold);
   opacity: 0.3;
@@ -742,7 +742,7 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 700;
   font-size: 1rem;
   color: var(--navy);
@@ -908,7 +908,7 @@ p {
 }
 
 .mikro-quote blockquote {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 1.2rem;
   font-style: italic;
   color: var(--navy);
@@ -953,7 +953,7 @@ p {
   position: absolute;
   top: 12px;
   right: 16px;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 3rem;
   font-weight: 700;
   color: var(--cream);
@@ -1565,7 +1565,7 @@ p {
 }
 
 .mobile-nav a {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 1.8rem;
   color: var(--white);
   opacity: 0;
