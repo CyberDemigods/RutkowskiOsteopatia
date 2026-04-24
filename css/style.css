@@ -2009,6 +2009,11 @@ p {
   color: var(--gold-dark);
 }
 
+/* Pricing page */
+.pricing {
+  padding: 60px 0 80px;
+}
+
 /* Blog post page */
 .blog-section {
   padding: 60px 0 100px;
