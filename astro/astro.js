@@ -258,7 +258,7 @@ async function generateViaOpenAI(systemPrompt, userPrompt) {
         { role: 'user', content: userPrompt }
       ],
       temperature: temp,
-      max_tokens: 3000,
+      max_tokens: 16000,
       stream: false
     })
   });
@@ -289,7 +289,7 @@ async function generateViaClaude(systemPrompt, userPrompt) {
     },
     body: JSON.stringify({
       model: model,
-      max_tokens: 3000,
+      max_tokens: 6000,
       temperature: temp,
       system: systemPrompt,
       messages: [
