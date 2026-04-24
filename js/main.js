@@ -130,4 +130,46 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // --- Cookie consent banner ---
+  if (!localStorage.getItem('cookieConsent')) {
+    var lang = document.documentElement.lang || 'pl';
+    var prefix = window.location.pathname.match(/\/blog\//) ? '../' : '';
+    var texts = {
+      pl: {
+        msg: 'Ta strona wykorzystuje pliki cookies w celu zapewnienia prawidłowego działania serwisu.',
+        accept: 'Akceptuję', reject: 'Odrzuć', policy: 'Polityka cookies',
+        url: prefix + 'polityka-cookies.html'
+      },
+      en: {
+        msg: 'This website uses cookies to ensure the proper functioning of the service.',
+        accept: 'Accept', reject: 'Reject', policy: 'Cookie Policy',
+        url: prefix + 'cookie-policy.html'
+      },
+      es: {
+        msg: 'Este sitio web utiliza cookies para garantizar el correcto funcionamiento del servicio.',
+        accept: 'Aceptar', reject: 'Rechazar', policy: 'Política de cookies',
+        url: prefix + 'politica-cookies.html'
+      }
+    };
+    var t = texts[lang] || texts.pl;
+    var banner = document.createElement('div');
+    banner.className = 'cookie-banner';
+    banner.innerHTML = '<p>' + t.msg + ' <a href="' + t.url + '">' + t.policy + '</a></p>' +
+      '<div class="cookie-buttons">' +
+      '<button class="btn btn-primary cookie-accept">' + t.accept + '</button>' +
+      '<button class="cookie-reject">' + t.reject + '</button></div>';
+    document.body.appendChild(banner);
+    setTimeout(function() { banner.classList.add('visible'); }, 800);
+    banner.querySelector('.cookie-accept').addEventListener('click', function() {
+      localStorage.setItem('cookieConsent', 'accepted');
+      banner.classList.remove('visible');
+      setTimeout(function() { banner.remove(); }, 400);
+    });
+    banner.querySelector('.cookie-reject').addEventListener('click', function() {
+      localStorage.setItem('cookieConsent', 'rejected');
+      banner.classList.remove('visible');
+      setTimeout(function() { banner.remove(); }, 400);
+    });
+  }
+
 });
