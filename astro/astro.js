@@ -453,6 +453,11 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
+  // Print / Save as PDF
+  document.getElementById('print-btn').addEventListener('click', function() {
+    window.print();
+  });
+
   // New report
   document.getElementById('back-btn').addEventListener('click', function() {
     showStep('step-form');

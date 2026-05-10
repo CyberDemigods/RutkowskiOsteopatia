@@ -313,3 +313,104 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Print / Save as PDF */
+@media print {
+  @page {
+    size: A4;
+    margin: 18mm 16mm;
+  }
+
+  body {
+    background: #fff !important;
+    color: #000 !important;
+    font-size: 10.5pt;
+  }
+
+  .navbar,
+  .mobile-nav,
+  .hamburger,
+  .footer,
+  .page-header,
+  .astro-settings,
+  .astro-loading,
+  #step-form,
+  #step-cosmogram,
+  .report-actions {
+    display: none !important;
+  }
+
+  .astro-app {
+    padding: 0 !important;
+  }
+
+  .astro-card {
+    box-shadow: none !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+  }
+
+  #step-report {
+    display: block !important;
+  }
+
+  .astro-card h2 {
+    font-size: 16pt;
+    color: #000 !important;
+    margin-bottom: 4pt;
+    border-bottom: 1pt solid #000;
+    padding-bottom: 6pt;
+  }
+
+  .astro-patient-label {
+    font-size: 10pt;
+    color: #555 !important;
+    margin-bottom: 16pt;
+  }
+
+  .report-content {
+    line-height: 1.55;
+    color: #111 !important;
+  }
+
+  .report-content h3 {
+    font-size: 12pt;
+    color: #000 !important;
+    page-break-after: avoid;
+    break-after: avoid;
+    margin-top: 14pt;
+    margin-bottom: 6pt;
+    padding-top: 10pt;
+    border-top: 0.5pt solid #888;
+  }
+
+  .report-content p {
+    font-size: 10.5pt;
+    margin-bottom: 8pt;
+    orphans: 3;
+    widows: 3;
+  }
+
+  .report-content strong {
+    color: #000 !important;
+  }
+
+  .report-content em {
+    color: #000 !important;
+    font-weight: 600;
+  }
+
+  /* Footer added by print: clinic identification */
+  #step-report::after {
+    content: "Sebastian Rutkowski — Osteopata. EOV, NIP 7722243514. sebastianrutkowski.pl";
+    display: block;
+    margin-top: 20pt;
+    padding-top: 8pt;
+    border-top: 0.5pt solid #888;
+    font-size: 8pt;
+    color: #666;
+    text-align: center;
+  }
+}
