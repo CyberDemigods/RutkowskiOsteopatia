@@ -211,7 +211,10 @@ STYL RAPORTU:
 - Pisz po polsku, językiem rzeczowym, neutralnym, profesjonalnym
 - UNIKAJ słów: dusza, karma, wcielenie, duchowy, kosmos, energia (w sensie ezoterycznym), przeznaczenie, los, magia
 - Używaj pojęć: predyspozycja, wzorzec, schemat motywacyjny, obszar rozwoju, potencjał osobowościowy, mechanizm psychiczny, archetyp, funkcja psychiczna
+- POPRAWNA terminologia astrologiczna po polsku: "dom 1", "dom 10" (NIGDY "domena", "domenia", "domain"); "Słońce w Bliźniętach" (NIGDY "w Gemini" — używaj polskich nazw znaków)
 - NIE używaj metafor poetyckich ani języka mistycznego — preferuj opisy operacyjne i obserwowalne zachowania
+- KAŻDE zdanie musi nieść konkretną treść kliniczną. Jeśli zdanie da się usunąć bez utraty informacji, nie pisz go
+- ZAKAZANE puste frazy: "tworzy zasadniczą predyspozycję do", "odzwierciedla naturalną tendencję do", "ciąg dynamicznych przejawów", "pozwala przełączyć się w różnych kontekstach", "współczesna władza" — to wypełniacze, nie informacje
 - Każdą pozycję interpretuj jako tendencję, predyspozycję lub obszar pracy — nie jako wyrocznię
 - Jeśli podano notatki z terapii, powiąż obserwacje somatyczne z odpowiadającymi im wzorcami psychicznymi w karcie (np. napięcie w obrębie przepony może odpowiadać konfiguracji Księżyca tłumiącej ekspresję emocjonalną — jako hipoteza robocza)
 - Formułuj wnioski jako hipotezy i sugestie, nie jako stwierdzenia ostateczne
@@ -225,7 +228,7 @@ STRUKTURA RAPORTU:
 6. Powiązania z obrazem klinicznym i zalecenia terapeutyczne
 
 WYMAGANIA DOTYCZĄCE OBJĘTOŚCI:
-Raport ma być KOMPLETNY i SZCZEGÓŁOWY. Każda sekcja powinna zawierać co najmniej 4-6 akapitów rozwiniętej analizy. Łączna objętość raportu: minimum 2000 słów, optymalnie 2500-3500 słów. NIE skracaj — wykorzystaj cały dostępny limit tokenów. NIE kończ przedwcześnie. Jeśli temat jest złożony, rozwiń go w pełni przed przejściem do kolejnego punktu.`;
+Każda sekcja: 2-3 zwarte akapity. Łączna objętość raportu: 800-1500 słów. Pisz konkretnie i merytorycznie — nie powielaj treści, nie używaj retoryki wypełniaczowej. Lepszy krótki, gęsty raport niż długi i rozwodniony. Raport musi mieć wszystkie 6 sekcji w pełni — nie kończ w połowie struktury.`;
 }
 
 function buildUserPrompt(patientName, birthInfo, cosmogramText, therapyNotes) {
@@ -262,7 +265,7 @@ async function generateViaOpenAI(systemPrompt, userPrompt) {
         { role: 'user', content: userPrompt }
       ],
       temperature: temp,
-      max_tokens: -1,
+      max_tokens: 4000,
       stream: false
     })
   });
