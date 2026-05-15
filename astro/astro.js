@@ -240,6 +240,22 @@ function buildUserPrompt(patientName, birthInfo, cosmogramText, therapyNotes) {
   return prompt;
 }
 
+function buildBrief(patientName, birthInfo, chartData, therapyNotes) {
+  const cosmogramText = buildCosmogramText(chartData);
+  let brief = '=== BRIEF DLA AI — RAPORT ASTROLOGII EWOLUCYJNEJ ===\n';
+  brief += 'Gabinet: Sebastian Rutkowski, Osteopata (EOV, sebastianrutkowski.pl)\n\n';
+  brief += 'PACJENT: ' + patientName + '\n';
+  brief += 'Data i miejsce urodzenia: ' + birthInfo + '\n\n';
+  brief += 'KOSMOGRAM:\n' + cosmogramText + '\n';
+  if (therapyNotes) {
+    brief += 'NOTATKI Z TERAPII:\n' + therapyNotes + '\n';
+  }
+  brief += '\n=== INSTRUKCJA DLA AI ===\n\n';
+  brief += buildSystemPrompt();
+  brief += '\n\nWygeneruj raport według powyższych zasad. Użyj nagłówków ### dla każdej z sześciu sekcji. Po zakończeniu raportu nie dodawaj żadnych komentarzy o sobie ani metanotatek.';
+  return brief;
+}
+
 async function generateReport(systemPrompt, userPrompt) {
   const provider = document.getElementById('llm-provider').value;
 
@@ -339,10 +355,16 @@ function toggleProviderSettings() {
   const provider = document.getElementById('llm-provider').value;
   document.getElementById('local-settings').classList.toggle('hidden', provider !== 'local');
   document.getElementById('claude-settings').classList.toggle('hidden', provider !== 'claude');
+  document.getElementById('brief-settings').classList.toggle('hidden', provider !== 'brief');
+  document.getElementById('test-connection-btn').classList.toggle('hidden', provider === 'brief');
+  document.getElementById('connection-status').classList.toggle('hidden', provider === 'brief');
 }
 
 // Event Listeners
 document.addEventListener('DOMContentLoaded', function() {
+
+  // Sync settings panel visibility with default provider selection
+  toggleProviderSettings();
 
   // Geocode button
   document.getElementById('geocode-btn').addEventListener('click', async function() {
@@ -416,6 +438,19 @@ document.addEventListener('DOMContentLoaded', function() {
       renderCosmogram(chartData, patientName, birthInfo);
       showStep('step-cosmogram');
 
+      // Brief mode: skip LLM call, prepare clipboard payload for external chatbot
+      const provider = document.getElementById('llm-provider').value;
+      if (provider === 'brief') {
+        const brief = buildBrief(patientName, birthInfo, chartData, therapyNotes);
+        document.getElementById('brief-patient').textContent = patientName + ' — ur. ' + birthInfo;
+        document.getElementById('brief-text').value = brief;
+        document.getElementById('ai-loading').classList.add('hidden');
+        showStep('step-brief');
+        btn.textContent = 'Oblicz kosmogram i generuj raport';
+        btn.disabled = false;
+        return;
+      }
+
       // Build prompts
       const cosmogramText = buildCosmogramText(chartData);
       const systemPrompt = buildSystemPrompt();
@@ -459,6 +494,38 @@ document.addEventListener('DOMContentLoaded', function() {
   // Print / Save as PDF
   document.getElementById('print-btn').addEventListener('click', function() {
     window.print();
+  });
+
+  // Brief mode: copy brief to clipboard
+  document.getElementById('copy-brief-btn').addEventListener('click', function() {
+    const text = document.getElementById('brief-text').value;
+    navigator.clipboard.writeText(text).then(() => {
+      this.textContent = 'Skopiowano!';
+      setTimeout(() => { this.textContent = 'Kopiuj brief do schowka'; }, 2000);
+    }).catch(() => {
+      document.getElementById('brief-text').select();
+      document.execCommand('copy');
+      this.textContent = 'Skopiowano!';
+      setTimeout(() => { this.textContent = 'Kopiuj brief do schowka'; }, 2000);
+    });
+  });
+
+  // Brief mode: render pasted report into step-report
+  document.getElementById('brief-show-report-btn').addEventListener('click', function() {
+    const reportText = document.getElementById('brief-report-input').value.trim();
+    if (!reportText) {
+      alert('Wklej najpierw treść raportu wygenerowanego przez AI.');
+      return;
+    }
+    const reportHtml = markdownToHtml(reportText);
+    document.getElementById('report-patient').textContent = document.getElementById('brief-patient').textContent;
+    document.getElementById('report-content').innerHTML = reportHtml;
+    showStep('step-report');
+  });
+
+  // Brief mode: back to form
+  document.getElementById('back-from-brief-btn').addEventListener('click', function() {
+    showStep('step-form');
   });
 
   // New report

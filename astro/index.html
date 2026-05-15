@@ -121,6 +121,43 @@
         </div>
       </div>
 
+      <!-- Step 2b: Brief for external AI (ChatGPT/Claude/Gemini) -->
+      <div class="astro-step hidden" id="step-brief">
+        <div class="astro-card">
+          <div class="report-header">
+            <h2>Brief dla AI</h2>
+            <div class="report-actions">
+              <button class="btn btn-outline btn-sm" id="back-from-brief-btn">Nowy raport</button>
+            </div>
+          </div>
+          <p class="astro-patient-label" id="brief-patient"></p>
+
+          <div class="brief-step">
+            <h3><span class="brief-num">1</span> Skopiuj brief</h3>
+            <p class="brief-desc">Brief zawiera dane pacjenta, pełny kosmogram oraz instrukcje stylu — działa w dowolnym chatbocie bez dodatkowej konfiguracji.</p>
+            <textarea id="brief-text" readonly rows="14"></textarea>
+            <button class="btn btn-primary" id="copy-brief-btn">Kopiuj brief do schowka</button>
+          </div>
+
+          <div class="brief-step">
+            <h3><span class="brief-num">2</span> Wygeneruj raport w AI</h3>
+            <p class="brief-desc">Otwórz dowolne narzędzie AI, wklej brief, poczekaj na raport:</p>
+            <div class="brief-links">
+              <a href="https://chat.openai.com/" target="_blank" rel="noopener" class="brief-link">ChatGPT (OpenAI)</a>
+              <a href="https://claude.ai/" target="_blank" rel="noopener" class="brief-link">Claude (Anthropic)</a>
+              <a href="https://gemini.google.com/" target="_blank" rel="noopener" class="brief-link">Gemini (Google)</a>
+            </div>
+          </div>
+
+          <div class="brief-step">
+            <h3><span class="brief-num">3</span> Wklej raport z AI</h3>
+            <p class="brief-desc">Skopiuj odpowiedź z AI i wklej poniżej — sformatujemy ją do druku/PDF z Twoim brandingiem.</p>
+            <textarea id="brief-report-input" rows="10" placeholder="Wklej tutaj treść raportu wygenerowanego przez AI..."></textarea>
+            <button class="btn btn-primary" id="brief-show-report-btn">Wyświetl raport</button>
+          </div>
+        </div>
+      </div>
+
       <!-- Step 3: Report -->
       <div class="astro-step hidden" id="step-report">
         <div class="astro-card">
@@ -145,12 +182,17 @@
             <div class="form-group full-width">
               <label for="llm-provider">Provider</label>
               <select id="llm-provider" onchange="toggleProviderSettings()">
+                <option value="brief">Brief do AI (kopiuj/wklej do ChatGPT, Claude, Gemini)</option>
                 <option value="local">LM Studio (lokalnie)</option>
                 <option value="claude">Claude API (produkcja)</option>
               </select>
             </div>
 
-            <div id="local-settings">
+            <div id="brief-settings">
+              <p class="form-help">Strona generuje sformatowany brief (dane pacjenta + kosmogram + instrukcje stylu). Wklej go do dowolnego chatbota (ChatGPT, Claude, Gemini) i otrzymasz raport. Działa nawet w darmowej wersji, bo brief zawiera wszystkie wytyczne. Najszybsza opcja jakościowa.</p>
+            </div>
+
+            <div id="local-settings" class="hidden">
               <div class="astro-form-grid">
                 <div class="form-group">
                   <label for="llm-url">Adres API</label>
