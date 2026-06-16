@@ -4,12 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="img/favicon.ico" type="image/x-icon">
-  <title>dr hab. Sebastian Rutkowski — Osteopatia i Mikrokinezyterapia</title>
-  <meta name="description" content="dr hab. prof. uczelni Sebastian Rutkowski — osteopatia, mikrokinezyterapia i rehabilitacja. Holistyczne podejście do zdrowia oparte na nauce i doświadczeniu.">
+  <title>Osteopata Opole — dr hab. Sebastian Rutkowski | Osteopatia i Mikrokinezyterapia</title>
+  <meta name="description" content="Osteopata Opole — dr hab. prof. uczelni Sebastian Rutkowski. Osteopatia, mikrokinezyterapia i rehabilitacja. Holistyczne, naukowe podejście do zdrowia. Umów wizytę w Opolu.">
+  <meta name="keywords" content="osteopata Opole, osteopatia Opole, mikrokinezyterapia Opole, terapia manualna Opole, osteopata dziecięcy Opole, rehabilitacja Opole">
   <meta name="author" content="Sebastian Rutkowski">
-  <meta property="og:title" content="dr hab. Sebastian Rutkowski — Osteopatia i Mikrokinezyterapia">
-  <meta property="og:description" content="Holistyczne podejście do zdrowia. Osteopatia, mikrokinezyterapia i rehabilitacja w Opolu.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="geo.region" content="PL-OP">
+  <meta name="geo.placename" content="Opole">
+  <meta name="geo.position" content="50.6817403;17.8734532">
+  <meta name="ICBM" content="50.6817403, 17.8734532">
+  <meta property="og:title" content="Osteopata Opole — dr hab. Sebastian Rutkowski | Osteopatia i Mikrokinezyterapia">
+  <meta property="og:description" content="Osteopata w Opolu. Holistyczne, naukowe podejście do zdrowia — osteopatia, mikrokinezyterapia i rehabilitacja. dr hab. prof. uczelni, Top 2% naukowców wg Stanford.">
   <meta property="og:type" content="website">
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:site_name" content="dr hab. Sebastian Rutkowski — Osteopata Opole">
   <meta property="og:url" content="https://sebastianrutkowski.pl/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,32 +36,120 @@
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "MedicalBusiness",
-  "name": "EOV Sebastian Rutkowski",
-  "alternateName": "Osteopatia Opole",
-  "url": "https://sebastianrutkowski.pl",
-  "telephone": "+48507027792",
-  "priceRange": "300 PLN",
-  "image": "https://sebastianrutkowski.pl/img/sebastian-rutkowski.webp",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "ul. Wroclawska 156a/306",
-    "addressLocality": "Opole",
-    "postalCode": "45-835",
-    "addressCountry": "PL"
-  },
-  "founder": {
-    "@type": "Person",
-    "name": "Sebastian Rutkowski",
-    "honorificPrefix": "dr hab.",
-    "jobTitle": "Osteopata"
-  },
-  "sameAs": [
-    "https://www.facebook.com/osteopatiaopole"
-  ],
-  "medicalSpecialty": "Osteopathic",
-  "paymentAccepted": "Cash, BLIK",
-  "currenciesAccepted": "PLN"
+  "@graph": [
+    {
+      "@type": ["MedicalBusiness", "MedicalClinic"],
+      "@id": "https://sebastianrutkowski.pl/#clinic",
+      "name": "Osteopata Opole — dr hab. Sebastian Rutkowski",
+      "alternateName": "Osteopatia Opole",
+      "url": "https://sebastianrutkowski.pl",
+      "telephone": "+48507027792",
+      "priceRange": "300 PLN",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://sebastianrutkowski.pl/img/sebastian-rutkowski.webp",
+        "width": 1200,
+        "height": 1200
+      },
+      "logo": "https://sebastianrutkowski.pl/img/favicon.ico",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "ul. Wrocławska 156a/306",
+        "addressLocality": "Opole",
+        "postalCode": "45-835",
+        "addressRegion": "opolskie",
+        "addressCountry": "PL"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 50.6817403,
+        "longitude": 17.8734532
+      },
+      "hasMap": "https://www.google.com/maps/search/?api=1&query=50.6817403,17.8734532",
+      "areaServed": [
+        { "@type": "City", "name": "Opole" },
+        { "@type": "City", "name": "Brzeg" },
+        { "@type": "City", "name": "Nysa" },
+        { "@type": "City", "name": "Kędzierzyn-Koźle" },
+        { "@type": "City", "name": "Kluczbork" },
+        { "@type": "AdministrativeArea", "name": "województwo opolskie" }
+      ],
+      "founder": { "@id": "https://sebastianrutkowski.pl/#person" },
+      "employee": { "@id": "https://sebastianrutkowski.pl/#person" },
+      "medicalSpecialty": "Osteopathic",
+      "knowsLanguage": ["pl", "en", "es", "it"],
+      "paymentAccepted": "Gotówka, BLIK",
+      "currenciesAccepted": "PLN",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "17:00"
+        }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "bestRating": "5",
+        "worstRating": "1",
+        "reviewCount": "22"
+      },
+      "sameAs": [
+        "https://www.facebook.com/osteopatiaopole",
+        "https://www.znanylekarz.pl/sebastian-rutkowski/osteopata/opole"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Usługi osteopatyczne w Opolu",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "priceCurrency": "PLN",
+            "price": "300",
+            "itemOffered": { "@type": "MedicalProcedure", "name": "Osteopatia (wizyta dla dorosłych)" }
+          },
+          {
+            "@type": "Offer",
+            "priceCurrency": "PLN",
+            "price": "300",
+            "itemOffered": { "@type": "MedicalProcedure", "name": "Osteopatia dziecięca" }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "MedicalProcedure", "name": "Mikrokinezyterapia" }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "MedicalProcedure", "name": "Terapia manualna i rehabilitacja" }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://sebastianrutkowski.pl/#person",
+      "name": "Sebastian Rutkowski",
+      "honorificPrefix": "dr hab. prof. uczelni",
+      "jobTitle": "Osteopata, fizjoterapeuta",
+      "url": "https://sebastianrutkowski.pl",
+      "image": "https://sebastianrutkowski.pl/img/sebastian-rutkowski.webp",
+      "knowsAbout": ["osteopatia", "mikrokinezyterapia", "terapia manualna", "rehabilitacja", "fizjoterapia"],
+      "worksFor": { "@id": "https://sebastianrutkowski.pl/#clinic" },
+      "sameAs": [
+        "https://www.facebook.com/osteopatiaopole",
+        "https://www.znanylekarz.pl/sebastian-rutkowski/osteopata/opole"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://sebastianrutkowski.pl/#website",
+      "url": "https://sebastianrutkowski.pl",
+      "name": "dr hab. Sebastian Rutkowski — Osteopata Opole",
+      "inLanguage": "pl-PL",
+      "publisher": { "@id": "https://sebastianrutkowski.pl/#person" }
+    }
+  ]
 }
   </script>
 </head>
@@ -120,10 +218,12 @@
     </div>
     <div class="container">
       <div class="hero-content">
+        <span class="hero-label">Osteopata &middot; Opole</span>
         <h1>
-          dr hab. prof. uczelni
-          <span class="accent">Sebastian Rutkowski</span>
+          Osteopatia w Opolu
+          <span class="accent">dr hab. Sebastian Rutkowski</span>
         </h1>
+        <p class="hero-subtitle">prof. uczelni &middot; Top 2% naukowców świata wg Stanford University</p>
         <p class="hero-text">
           Moje sesje terapeutyczne oparte są na założeniu, że ciało, umysł i świadomość tworzą nierozerwalną całość, wzajemnie wpływając na zdrowie i samopoczucie. Łączę techniki manualne z uważnym słuchaniem ciała.
         </p>
@@ -161,6 +261,9 @@
         </p>
         <p class="section-desc">
           Ukończyłem studia z fizjoterapii, zdobyłem stopień doktora habilitowanego nauk medycznych i ukończyłem studia osteopatyczne. Jestem jednym z nielicznych terapeutów w Polsce łączących pracę naukową z codzienną praktyką kliniczną.
+        </p>
+        <p class="section-desc">
+          Jako osteopata w Opolu pomagam pacjentom przy bólach kręgosłupa i stawów, napięciach mięśniowych, bólach głowy, ograniczeniach ruchomości oraz w powrocie do równowagi po urazach i przeciążeniach. Przyjmuję dorosłych i dzieci w gabinecie przy ul. Wrocławskiej 156a/306, obsługując pacjentów z Opola i całego województwa opolskiego.
         </p>
         <div class="about-stats">
           <div class="stat">
@@ -211,6 +314,10 @@
         <span class="section-label">Opinie pacjentów</span>
         <h2 class="section-title">Zaufali mi</h2>
         <p class="section-desc">Każda historia pacjenta jest dla mnie motywacją do dalszej pracy.</p>
+        <a href="https://www.google.com/maps/search/?api=1&query=50.6817403,17.8734532" class="rating-badge" target="_blank" rel="noopener" aria-label="Ocena 5,0 na 5 na podstawie 22 opinii w Google">
+          <span class="rating-stars" aria-hidden="true">★★★★★</span>
+          <span class="rating-text"><strong>5,0</strong> / 5 &middot; 22 opinie w Google</span>
+        </a>
       </div>
       <div class="testimonials-grid">
         <div class="testimonial-card fade-in">
@@ -263,6 +370,82 @@
       </div>
     </div>
   </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <div class="container">
+      <div class="features-header fade-in">
+        <span class="section-label">Najczęstsze pytania</span>
+        <h2 class="section-title">Osteopata Opole — FAQ</h2>
+        <p class="section-desc">Odpowiedzi na pytania, które najczęściej zadają pacjenci przed pierwszą wizytą w gabinecie w Opolu.</p>
+      </div>
+      <div class="faq-list fade-in">
+        <details class="faq-item">
+          <summary>Ile kosztuje wizyta u osteopaty w Opolu?</summary>
+          <div class="faq-answer"><p>Wizyta osteopatyczna w gabinecie dr. hab. Sebastiana Rutkowskiego w Opolu kosztuje 300 zł. Ta sama stawka obowiązuje dla osteopatii dorosłych i osteopatii dziecięcej. Płatność gotówką lub BLIK-iem.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>Gdzie przyjmuje osteopata Sebastian Rutkowski w Opolu?</summary>
+          <div class="faq-answer"><p>Gabinet mieści się w Opolu przy ul. Wrocławskiej 156a/306 (45-835 Opole). Wizyty umawiane są indywidualnie pod numerem 507 027 792.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>Czym jest osteopatia i w czym może pomóc?</summary>
+          <div class="faq-answer"><p>Osteopatia to manualna metoda terapeutyczna, która traktuje ciało jako całość i szuka źródła dolegliwości, a nie tylko łagodzi objawy. Pomaga m.in. przy bólach kręgosłupa, napięciach mięśniowych, bólach głowy, ograniczeniach ruchomości oraz w powrocie do równowagi po urazach i przeciążeniach.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>Czym różni się mikrokinezyterapia od klasycznej osteopatii?</summary>
+          <div class="faq-answer"><p>Mikrokinezyterapia to bardzo delikatna technika polegająca na precyzyjnych mikropalpacjach, które pobudzają naturalne mechanizmy samonaprawcze organizmu i pomagają odnaleźć tzw. pamięć urazu. W Opolu łączę ją z osteopatią i wiedzą naukową z zakresu rehabilitacji.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>Czy osteopata przyjmuje dzieci?</summary>
+          <div class="faq-answer"><p>Tak. W ofercie jest osteopatia dziecięca — delikatna praca dostosowana do najmłodszych pacjentów. Koszt wizyty to 300 zł.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>Jak umówić wizytę u osteopaty w Opolu?</summary>
+          <div class="faq-answer"><p>Wizytę umówisz telefonicznie pod numerem 507 027 792 lub przez formularz na stronie Kontakt. Konsultacje online nie są prowadzone — terapia osteopatyczna wymaga pracy manualnej w gabinecie w Opolu.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Ile kosztuje wizyta u osteopaty w Opolu?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Wizyta osteopatyczna w gabinecie dr. hab. Sebastiana Rutkowskiego w Opolu kosztuje 300 zł. Ta sama stawka obowiązuje dla osteopatii dorosłych i osteopatii dziecięcej. Płatność gotówką lub BLIK-iem." }
+    },
+    {
+      "@type": "Question",
+      "name": "Gdzie przyjmuje osteopata Sebastian Rutkowski w Opolu?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Gabinet mieści się w Opolu przy ul. Wrocławskiej 156a/306 (45-835 Opole). Wizyty umawiane są indywidualnie pod numerem 507 027 792." }
+    },
+    {
+      "@type": "Question",
+      "name": "Czym jest osteopatia i w czym może pomóc?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Osteopatia to manualna metoda terapeutyczna, która traktuje ciało jako całość i szuka źródła dolegliwości, a nie tylko łagodzi objawy. Pomaga m.in. przy bólach kręgosłupa, napięciach mięśniowych, bólach głowy, ograniczeniach ruchomości oraz w powrocie do równowagi po urazach i przeciążeniach." }
+    },
+    {
+      "@type": "Question",
+      "name": "Czym różni się mikrokinezyterapia od klasycznej osteopatii?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Mikrokinezyterapia to bardzo delikatna technika polegająca na precyzyjnych mikropalpacjach, które pobudzają naturalne mechanizmy samonaprawcze organizmu i pomagają odnaleźć tzw. pamięć urazu. W Opolu łączona jest z osteopatią i wiedzą naukową z zakresu rehabilitacji." }
+    },
+    {
+      "@type": "Question",
+      "name": "Czy osteopata przyjmuje dzieci?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Tak. W ofercie jest osteopatia dziecięca — delikatna praca dostosowana do najmłodszych pacjentów. Koszt wizyty to 300 zł." }
+    },
+    {
+      "@type": "Question",
+      "name": "Jak umówić wizytę u osteopaty w Opolu?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Wizytę umówisz telefonicznie pod numerem 507 027 792 lub przez formularz na stronie Kontakt. Konsultacje online nie są prowadzone — terapia osteopatyczna wymaga pracy manualnej w gabinecie w Opolu." }
+    }
+  ]
+}
+  </script>
 
   <!-- CTA -->
   <section class="cta">
