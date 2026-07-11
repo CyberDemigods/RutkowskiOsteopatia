@@ -372,6 +372,25 @@ p {
   flex-wrap: wrap;
 }
 
+.hero-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 22px;
+  padding: 9px 18px;
+  font-size: 0.9rem;
+  color: var(--cream);
+  background: rgba(212, 168, 83, 0.12);
+  border: 1px solid rgba(212, 168, 83, 0.35);
+  border-radius: 100px;
+}
+
+.hero-note-icon {
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
+
 .btn {
   display: inline-flex;
   align-items: center;
