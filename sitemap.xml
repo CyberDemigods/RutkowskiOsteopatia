@@ -147,7 +147,7 @@
   </url>
   <url>
     <loc>https://sebastianrutkowski.pl/blog.html</loc>
-    <lastmod>2026-07-10</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <xhtml:link rel="alternate" hreflang="pl" href="https://sebastianrutkowski.pl/blog.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://sebastianrutkowski.pl/en/blog.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://sebastianrutkowski.pl/es/blog.html"/>
@@ -156,7 +156,7 @@
   </url>
   <url>
     <loc>https://sebastianrutkowski.pl/en/blog.html</loc>
-    <lastmod>2026-07-10</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <xhtml:link rel="alternate" hreflang="pl" href="https://sebastianrutkowski.pl/blog.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://sebastianrutkowski.pl/en/blog.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://sebastianrutkowski.pl/es/blog.html"/>
@@ -165,7 +165,7 @@
   </url>
   <url>
     <loc>https://sebastianrutkowski.pl/es/blog.html</loc>
-    <lastmod>2026-07-10</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <xhtml:link rel="alternate" hreflang="pl" href="https://sebastianrutkowski.pl/blog.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://sebastianrutkowski.pl/en/blog.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://sebastianrutkowski.pl/es/blog.html"/>
@@ -647,6 +647,33 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://sebastianrutkowski.pl/es/blog/conscious-man-conciencia-y-salud.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://sebastianrutkowski.pl/blog/conscious-man-swiadomosc-i-zdrowie.html"/>
     <lastmod>2026-07-10</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sebastianrutkowski.pl/blog/top-2-procent-naukowcow-stanford-2025.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://sebastianrutkowski.pl/blog/top-2-procent-naukowcow-stanford-2025.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sebastianrutkowski.pl/en/blog/top-2-percent-scientists-stanford-2025.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sebastianrutkowski.pl/es/blog/top-2-por-ciento-cientificos-stanford-2025.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sebastianrutkowski.pl/blog/top-2-procent-naukowcow-stanford-2025.html"/>
+    <lastmod>2026-10-09</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sebastianrutkowski.pl/en/blog/top-2-percent-scientists-stanford-2025.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://sebastianrutkowski.pl/blog/top-2-procent-naukowcow-stanford-2025.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sebastianrutkowski.pl/en/blog/top-2-percent-scientists-stanford-2025.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sebastianrutkowski.pl/es/blog/top-2-por-ciento-cientificos-stanford-2025.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sebastianrutkowski.pl/blog/top-2-procent-naukowcow-stanford-2025.html"/>
+    <lastmod>2026-10-09</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sebastianrutkowski.pl/es/blog/top-2-por-ciento-cientificos-stanford-2025.html</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://sebastianrutkowski.pl/blog/top-2-procent-naukowcow-stanford-2025.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sebastianrutkowski.pl/en/blog/top-2-percent-scientists-stanford-2025.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sebastianrutkowski.pl/es/blog/top-2-por-ciento-cientificos-stanford-2025.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sebastianrutkowski.pl/blog/top-2-procent-naukowcow-stanford-2025.html"/>
+    <lastmod>2026-10-09</lastmod>
     <priority>0.6</priority>
   </url>
 </urlset>
