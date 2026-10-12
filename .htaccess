@@ -1,0 +1,13 @@
+# sebastianrutkowski.pl - static site (no PHP). Hardened after incident 2026-10-12.
+DirectoryIndex index.html
+Options -Indexes
+
+# The site has no server-side code: never execute scripts in this directory tree.
+<FilesMatch "\.(php[0-9]?|phtml|phar|pht|inc|pl|py|cgi|sh)$">
+    Require all denied
+</FilesMatch>
+
+# Block dotfiles such as .user.ini / .git
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
